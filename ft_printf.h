@@ -6,7 +6,7 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:55:22 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/14 18:38:24 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/19 11:07:27 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdarg.h>
 # include <limits.h>
 
-int	forconversion(char c, va_list *args);
+int	forconversion(const char *c, va_list args);
 int	printf_char(int c);
 int	ft_printf(const char *format, ...);
 int	printf_hex(unsigned int n, int uppercase);
