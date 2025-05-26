@@ -6,13 +6,13 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:35:12 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 11:07:16 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/23 12:08:14 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	forconversion(const char *c, va_list args)
+int	conversion(const char *c, va_list args)
 {
 	if (*c == 'c')
 		return (printf_char(va_arg(args, int)));

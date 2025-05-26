@@ -6,28 +6,37 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 14:01:13 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 09:14:40 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:44:50 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	printf_num(int number)
+int	printf_num(int n)
 {
 	char	c;
 	int		len;
+	int		temp;
 
 	len = 0;
-	if (number == INT_MIN)
+	if (n == INT_MIN)
 		return (write(1, "-2147483648", 11));
-	if (number < 0)
+	if (n < 0)
 	{
-		len += write(1, "-", 1);
-		number = -number;
+		if (write(1, "-", 1) != 1)
+			return (-1);
+		len++;
+		n = -n;
 	}
-	if (number > 9)
-		len += printf_num(number / 10);
-	c = (number % 10) + '0';
-	len += write(1, &c, 1);
-	return (len);
+	if (n > 9)
+	{
+		temp = printf_num(n / 10);
+		if (temp == -1)
+			return (-1);
+		len += temp;
+	}
+	c = (n % 10) + '0';
+	if (write(1, &c, 1) != 1)
+		return (-1);
+	return (len + 1);
 }

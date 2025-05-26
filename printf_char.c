@@ -6,7 +6,7 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:49:45 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 13:18:19 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:21:46 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	printf_char(int c)
 	unsigned char	ch;
 
 	ch = (unsigned char)c;
-	write(1, &ch, 1);
+	if (write(1, &ch, 1) != 1)
+		return (-1);
 	return (1);
 }

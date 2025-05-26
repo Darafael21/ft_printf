@@ -6,7 +6,7 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 15:02:39 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 09:15:55 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:25:45 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	printf_unsint(unsigned int n)
 			return (-1);
 	}
 	c = (n % 10) + '0';
-	if (write(1, &c, 1) == -1)
+	if (write(1, &c, 1) != 1)
 		return (-1);
 	return (len + 1);
 }

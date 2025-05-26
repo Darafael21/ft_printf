@@ -6,7 +6,7 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:50:24 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 09:15:19 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/23 16:39:32 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	printf_ptrrecursive(unsigned long n, char *base)
 			return (-1);
 	}
 	c = base[n % 16];
-	if (write(1, &c, 1) == -1)
+	if (write(1, &c, 1) != 1)
 		return (-1);
 	return (len + 1);
 }
@@ -37,7 +37,11 @@ int	printf_pointers(void *ptr)
 	int				len;
 
 	if (ptr == NULL)
-		return (write(1, "(nil)", 5));
+	{
+		if (write(1, "(nil)", 5) != 5)
+			return (-1);
+		return (5);
+	}
 	address = (unsigned long)ptr;
 	hex_digits = "0123456789abcdef";
 	len = 0;

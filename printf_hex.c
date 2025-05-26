@@ -6,7 +6,7 @@
 /*   By: darafael <darafael@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 10:50:13 by darafael          #+#    #+#             */
-/*   Updated: 2025/05/19 09:14:15 by darafael         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:25:57 by darafael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	printf_hex(unsigned int n, int uppercase)
 		if (len == -1)
 			return (-1);
 	}
-	if (write(1, &base[n % 16], 1) == -1)
+	if (write(1, &base[n % 16], 1) != 1)
 		return (-1);
 	return (len + 1);
 }
